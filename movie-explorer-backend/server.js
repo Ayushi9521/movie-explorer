@@ -31,10 +31,8 @@ app.get("/api/genres", async (req, res) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`);
       const data = await response.json();
-      console.log(data); // Log the data to see what's being returned
       res.json(data);
     } catch (error) {
-      console.error("Error fetching genres:", error);
       res.status(500).json({ error: "Failed to fetch genres" });
     }
   });
